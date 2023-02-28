@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A-Frame で超簡単 AR</title>
+</head>
+<body style="margin:0px; overflow:hidden;">
+  <!-- A-Frame ライブラリの読み込み -->
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <!-- AR.js ライブラリの読み込み -->
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  
+  <!-- A-Frame の VR空間に AR.js を紐づける（デバッグUIを非表示） -->
+  <a-scene embedded arjs="debugUIEnabled:false;">
+ 
+    <!-- マーカーを登録（プリセットされている「hiro」マーカー） -->
+    <!-- 名刺の画像を準備 -->
+    <a-assets>
+      <img id="front" src="pattern-git.PNG">
+    </a-assets>
+    
+    <!-- マーカーのタグの中に表示させたいオブジェクトをマークアップする -->
+    <a-marker type="pattern" url="pattern-myqr5.patt">
+      <a-plane
+        position="0 .75 0"
+        rotation="0 0 0"
+        width="1.75"
+        material="src: #front;">
+      </a-plane>
+    </a-marker>
+ 
+    <!-- AR用のカメラを置く -->
+    <a-entity camera></a-entity>
+ 
+  </a-scene>
+ 
+</body>
+</html>
